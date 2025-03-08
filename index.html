@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share File via WhatsApp</title>
+    <script src="cordova.js"></script> <!-- Required for Cordova -->
+</head>
+<body>
+
+    <h2>Share JPG or PDF File to WhatsApp</h2>
+
+    <button onclick="downloadAndShareFile('https://tinyjpg.com/images/social/website.jpg', 'sample.jpg')">
+        Download & Share JPG
+    </button>
+
+    <button onclick="downloadAndShareFile('https://www.wbdg.org/FFC/VA/VADEGUID/dg_small_house_model.pdf', 'sample.pdf')">
+        Download & Share PDF
+    </button>
+
+    <script>
+        document.addEventListener("deviceready", function() {
+            console.log("Device is ready!");
+        }, false);
+
+        function downloadAndShareFile(fileUrl, fileName) {
+            var fileTransfer = new FileTransfer();
+            var filePath = cordova.file.externalDataDirectory + fileName; // Store in external directory
+
+            fileTransfer.download(
+                fileUrl,
+                filePath,
+                function(entry) {
+                    console.log("File downloaded to: " + entry.toURL());
+                    alert("File saved! Now sharing...");
+                    shareFile(entry.toURL()); // Share after downloading
+                },
+                function(error) {
+                    console.error("Download error: " + JSON.stringify(error));
+                    alert("File download failed!");
+                },
+                false
+            );
+        }
+
+        function shareFile(filePath) {
+            window.plugins.socialsharing.shareViaWhatsApp(
+                "Check out this file!",  // Message
+                filePath,  // File path
+                null,  // No web URL
+                function() { console.log("File shared successfully!"); },
+                function(err) { console.error("Error sharing file: " + err); }
+            );
+        }
+    </script>
+
+</body>
+</html>
