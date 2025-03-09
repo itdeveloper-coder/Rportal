@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom File Upload (jQuery)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .customkyc-btn {
+            background-color: #fff;
+            color: #DD5943;
+            width: 100%;
+            border: 1px solid #DD5943;
+            border-radius: 10px;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .customkyc-btn:hover {
+            background-color: #8a2d1c;
+            color: white;
+        }
+
+        .file-input {
+            display: none; /* Hide file input */
+        }
+
+        .delete-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Upload Button -->
+    <button class="customkyc-btn" id="customerkyc_file_adharcard">Upload</button>
+
+    <!-- Hidden File Input -->
+    <input type="file" id="customerkyc_file_adharcard_Template29" class="file-input">
+
+    <script>
+        $(document).ready(function () {
+            $("#customerkyc_file_adharcard").click(function () {
+                $("#customerkyc_file_adharcard_Template29").click(); // Trigger file input
+            });
+
+            $("#customerkyc_file_adharcard_Template29").change(function () {
+                let file = this.files[0]; // Get selected file
+                if (file) {
+                    let deleteId = "delete_" + new Date().getTime(); // Unique ID for delete button
+
+                    // Update button text with filename & delete icon
+                    $("#customerkyc_file_adharcard").html(`
+                        ${file.name}
+                        <img src="img/icon/delete-icon.png" alt="Delete" class="delete-icon" id="${deleteId}">
+                    `);
+
+                    // Attach event listener to delete button
+                    $("#" + deleteId).click(function (event) {
+                        event.stopPropagation(); // Prevent click from triggering file input again
+                        $("#customerkyc_file_adharcard_Template29").val(""); // Clear file input
+                        $("#customerkyc_file_adharcard").html("Upload"); // Reset button text
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

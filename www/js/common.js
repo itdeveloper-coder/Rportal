@@ -1,0 +1,66 @@
+//navbar common code
+$("#navbar_main").html("");
+var varnavbar = '<nav class="navbar" >';
+varnavbar +=  '<a class="navbar-brand" href="#">';
+varnavbar +=  '  <i class="material-symbols-outlined" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"';
+varnavbar +=  '    aria-controls="offcanvasMenu">menu</i>';
+varnavbar +=  '</a>';
+varnavbar +=  '<div class="ms-auto">';
+varnavbar +=  '  <i class="material-symbols-outlined">person</i>';
+varnavbar +=  '  <i class="material-symbols-outlined">notifications</i>';
+varnavbar +=  '</div>';
+varnavbar +=  '</nav>;';
+$("#navbar_main").html(varnavbar);
+
+
+//navbar common code
+$(".footer_menu").html("");
+var varfooter_menu = '<div class="main_homepagemenu">';
+varfooter_menu +=  '<div id="homepage_maindiv">';
+varfooter_menu +=  '  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"';
+varfooter_menu +=  '    aria-controls="offcanvasMenu"><img src="img/icon/menu-icon.png" alt=""></a>';
+varfooter_menu +=  '  <a href="project-info.html"><img src="img/icon/project-icon.png" alt=""></a>';
+varfooter_menu +=  '  <a href="home.html?section=home_firstsection"><img src="img/icon/home-bg-icon.png" alt=""></a>';
+varfooter_menu +=  '  <a href="notification.html"><img src="img/icon/notification-icon.png" alt=""></a>';
+varfooter_menu +=  '  <a href="profile.html"><img src="img/icon/profile-icon.png" alt=""></a>';
+varfooter_menu +=  '</div>';
+varfooter_menu +=  '</div>';
+$(".footer_menu").html(varfooter_menu);
+
+$("#offconvas_menu").html("");
+var varoffcanvas_menu = '<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">';
+varoffcanvas_menu+= ' <div class="offcanvas-header">';
+varoffcanvas_menu+= '      <button type="button" class="btn-close" data-bs-dismiss="offcanvas">';
+varoffcanvas_menu+= '        <span class="material-symbols-outlined">close</span>';
+varoffcanvas_menu+= '      </button>';
+varoffcanvas_menu+= '      <div class="menu-profile">';
+varoffcanvas_menu+= '        <span class="material-symbols-outlined">';
+varoffcanvas_menu+= '          person';
+varoffcanvas_menu+= '        </span>';
+varoffcanvas_menu+= '        <div class="profile-contant">';
+varoffcanvas_menu+= '          <h5>Mr. Praful</h5>';
+varoffcanvas_menu+= '          <small>sudhakar@example.com</small>';
+varoffcanvas_menu+= '        </div>';
+varoffcanvas_menu+= '      </div>';
+varoffcanvas_menu+= '    </div>';
+varoffcanvas_menu+= '    <div class="offcanvas-body p-0">';
+varoffcanvas_menu+= '      <div class="menu-items">';
+varoffcanvas_menu+= '        <a class="navBtn" data-section="kycdiv1">';
+varoffcanvas_menu+= '          <span class="material-symbols-outlined">info</span> Project Info';
+varoffcanvas_menu+= '        </a>';
+varoffcanvas_menu+= '        <a href="Payment-Details.html?section=Payment_Details_section" class="manubar"> <span class="material-symbols-outlined">credit_card</span>';
+varoffcanvas_menu+= '          Payments</a>';
+varoffcanvas_menu+= '        <a href="Support.html" class="manubar"><span class="material-symbols-outlined">headset_mic</span> Support</a>';
+varoffcanvas_menu+= '        <a class="navBtn  Btnclick" data-section="support_meetingsection"><span';
+varoffcanvas_menu+= '            class="material-symbols-outlined">event_available</span>';
+varoffcanvas_menu+= '          Appointment</a>';
+varoffcanvas_menu+= '        <a href="#" class="manubar"><span class="material-symbols-outlined">route</span> My Journey</a>';
+varoffcanvas_menu+= '        <a href="#" class="manubar"><span class="material-symbols-outlined">description</span> Documents</a>';
+varoffcanvas_menu+= '        <a href="#" class="manubar"><span class="material-symbols-outlined">group</span> Referral</a>';
+varoffcanvas_menu+= '        <a href="#" class="manubar"><span class="material-symbols-outlined">help</span> FAQ</a>';
+varoffcanvas_menu+= '        <a href="Receipts.html" class="manubar"><span class="material-symbols-outlined">help</span> Receipts</a>';
+varoffcanvas_menu+= '        <a href="#" class="manubar"><span class="material-symbols-outlined">home</span> Other Homes</a>';
+varoffcanvas_menu+= '      </div>';
+varoffcanvas_menu+= '    </div>';
+varoffcanvas_menu+= '  </div>';
+$("#offconvas_menu").html(varoffcanvas_menu);

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mobile-Only Full-Page Sections</title>
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link href="css/main.css" rel="stylesheet" >
+    <link href="css/style.css" rel="stylesheet" >
+    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            max-width: 768px;
+            overflow: hidden;
+        }
+        .header, .footer {
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        .header {
+            top: 0;
+        }
+        .footer {
+            bottom: 0;
+        }
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            margin-top: 60px; /* Adjust based on header height */
+            margin-bottom: 60px; /* Adjust based on footer height */
+        }
+        .content {
+            display: block;
+        }
+        .section {
+            width: 100%; /* Ensures full width */
+            min-height: calc(100vh - 120px); /* Ensures section is fully visible */
+            scroll-snap-align: start;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Start content from bottom */
+        }
+        #login_section{
+            background-color: #000 !important;
+            background: url(/img/first-page/projectvideo.png) no-repeat center center fixed;
+        }
+    
+        @media (min-width: 769px) {
+            body {
+                display: none; /* Hide content on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h2>Sticky Header</h2>
+    </header>
+    
+    <div class="content-wrapper">
+        <div class="content">
+            <section class="section" id="login_section">
+                <div class="logo-container">
+                    <div class="logo text-center"> 
+                        <img src="img/first-page/Vector.png" alt="Logo" class="img-fluid">
+                    </div>
+                    <p class="tagline"><span class="fw-bold" >ROHAN</span><span class="poppins-extralight ms-2">HOME</span></p>
+                    <p class="tagline">Building Dreams, One Brick at a Time</p>
+                </div>
+                <div class="bg-firstimg">
+                    <img src="img/first-page/image 21.png" alt="Background Image" class="img-fluid">
+                </div> 
+            
+                
+                      </section>
+                
+              
+            </section>
+            <section class="section">Section 2</section>
+            <section class="section">Section 3</section>
+            <section class="section">Section 4</section>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Sticky Footer</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
